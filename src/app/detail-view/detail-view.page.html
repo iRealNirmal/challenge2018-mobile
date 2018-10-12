@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>detailView</ion-title>
+    <ion-buttons slot="primary">
+        <ion-button (click)="goToCart()">
+            <ion-icon slot="icon-only" name="md-cart"></ion-icon>
+          </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item  detail-none *ngFor="let product of productList">
+          <ion-label>
+            <h2>{{product.name}} <ion-badge color="primary">{{product.rewards}} <ion-icon name="cash"></ion-icon></ion-badge></h2>
+            <h3>I'm a big deal</h3>
+            <p>{{product.price | currency:'INR'}}</p>
+          </ion-label>
+          <ion-button shape="round" color="primary" fill="outline" item-end (click)="addCart(product)">Add <ion-icon name="md-cart"></ion-icon></ion-button>
+        </ion-item>
+        <ion-item  *ngIf="!productList">
+          <ion-label>
+            <h2>Nothing to show</h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-button  size="block" color="primary" (click)="share()">SHARE</ion-button>
+</ion-content>

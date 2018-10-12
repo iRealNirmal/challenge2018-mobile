@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+    <ion-title>cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item  detail-none *ngFor="let product of cartList;let i = index">
+      <ion-label>
+        <h2>{{product.name}}</h2>
+        <p>
+          {{product.price | currency:'INR'}} 
+          <ion-badge color="primary">{{product.count}}</ion-badge>
+        </p>
+        <p>Amount {{product.count * product.price | currency:'INR'}}</p>
+      </ion-label>
+      <ion-button shape="round" color="danger" fill="outline" item-end (click)="removeCart(i)">Remove <ion-icon name="close"></ion-icon></ion-button>
+    </ion-item>
+    <ion-item *ngIf="!cartList">
+      <ion-label>
+        <h2>Nothing is added in cart.</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button *ngIf="cartList != 0" expand="block" color="primary" (click)="checkout()">Checkout</ion-button>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "loyalityApps",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
