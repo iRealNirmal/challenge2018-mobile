@@ -366,16 +366,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _about_about_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../about/about.module */ "./src/app/about/about.module.ts");
 /* harmony import */ var _nearme_nearme_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../nearme/nearme.module */ "./src/app/nearme/nearme.module.ts");
 /* harmony import */ var _home_home_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../home/home.module */ "./src/app/home/home.module.ts");
-/* harmony import */ var _profiles_profiles_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../profiles/profiles.module */ "./src/app/profiles/profiles.module.ts");
+/* harmony import */ var _account_account_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../account/account.module */ "./src/app/account/account.module.ts");
 /* harmony import */ var _cart_cart_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../cart/cart.module */ "./src/app/cart/cart.module.ts");
-/* harmony import */ var _history_history_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../history/history.module */ "./src/app/history/history.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -401,11 +399,9 @@ var TabsPageModule = /** @class */ (function () {
                 _home_home_module__WEBPACK_IMPORTED_MODULE_9__["HomePageModule"],
                 _about_about_module__WEBPACK_IMPORTED_MODULE_7__["AboutPageModule"],
                 _contact_contact_module__WEBPACK_IMPORTED_MODULE_6__["ContactPageModule"],
-                _profiles_profiles_module__WEBPACK_IMPORTED_MODULE_10__["ProfilesPageModule"],
-                _profiles_profiles_module__WEBPACK_IMPORTED_MODULE_10__["ProfilesPageModule"],
+                _account_account_module__WEBPACK_IMPORTED_MODULE_10__["AccountPageModule"],
                 _nearme_nearme_module__WEBPACK_IMPORTED_MODULE_8__["NearmePageModule"],
                 _cart_cart_module__WEBPACK_IMPORTED_MODULE_11__["CartPageModule"],
-                _history_history_module__WEBPACK_IMPORTED_MODULE_12__["HistoryPageModule"],
             ],
             declarations: [_tabs_page__WEBPACK_IMPORTED_MODULE_5__["TabsPage"]]
         })
@@ -424,7 +420,7 @@ var TabsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-tabs>\n  <ion-tab label=\"Home\" icon=\"home\" href=\"/tabs/(home:home)\">\n    <ion-router-outlet name=\"home\"></ion-router-outlet>\n  </ion-tab>\n  <ion-tab label=\"Offer\" icon=\"locate\" href=\"/tabs/(nearme:nearme)\">\n    <ion-router-outlet name=\"nearme\"></ion-router-outlet>\n  </ion-tab>\n  <ion-tab label=\"Cart\" icon=\"cart\" href=\"/tabs/(cart:cart)\">\n    <ion-router-outlet name=\"cart\"></ion-router-outlet>\n  </ion-tab>\n  <ion-tab label=\"Profile\" icon=\"person\" href=\"/tabs/(profiles:profiles)\">\n    <ion-router-outlet name=\"profiles\"></ion-router-outlet>\n  </ion-tab>\n  <ion-tab label=\"History\" icon=\"globe\" href=\"/tabs/(history:history)\">\n    <ion-router-outlet name=\"history\"></ion-router-outlet>\n  </ion-tab>\n</ion-tabs>\n"
+module.exports = "<ion-tabs>\n  <ion-tab label=\"Home\" icon=\"home\" href=\"/tabs/(home:home)\">\n    <ion-router-outlet name=\"home\"></ion-router-outlet>\n  </ion-tab>\n  <ion-tab label=\"Offer\" icon=\"locate\" href=\"/tabs/(nearme:nearme)\">\n    <ion-router-outlet name=\"nearme\"></ion-router-outlet>\n  </ion-tab>\n  <ion-tab label=\"Cart\" icon=\"cart\" href=\"/tabs/(cart:cart)\">\n    <ion-router-outlet name=\"cart\"></ion-router-outlet>\n  </ion-tab>\n  <ion-tab label=\"Account\" icon=\"person\" href=\"/tabs/(account:account)\">\n    <ion-router-outlet name=\"account\"></ion-router-outlet>\n  </ion-tab>\n</ion-tabs>\n"
 
 /***/ }),
 
@@ -494,17 +490,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_home_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../home/home.page */ "./src/app/home/home.page.ts");
 /* harmony import */ var _about_about_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../about/about.page */ "./src/app/about/about.page.ts");
 /* harmony import */ var _contact_contact_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../contact/contact.page */ "./src/app/contact/contact.page.ts");
-/* harmony import */ var _profiles_profiles_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../profiles/profiles.page */ "./src/app/profiles/profiles.page.ts");
+/* harmony import */ var _account_account_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../account/account.page */ "./src/app/account/account.page.ts");
 /* harmony import */ var _nearme_nearme_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../nearme/nearme.page */ "./src/app/nearme/nearme.page.ts");
 /* harmony import */ var _cart_cart_page__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../cart/cart.page */ "./src/app/cart/cart.page.ts");
-/* harmony import */ var _history_history_page__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../history/history.page */ "./src/app/history/history.page.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -540,9 +534,9 @@ var routes = [
                 component: _contact_contact_page__WEBPACK_IMPORTED_MODULE_5__["ContactPage"]
             },
             {
-                path: 'profiles',
-                outlet: 'profiles',
-                component: _profiles_profiles_page__WEBPACK_IMPORTED_MODULE_6__["ProfilesPage"]
+                path: 'account',
+                outlet: 'account',
+                component: _account_account_page__WEBPACK_IMPORTED_MODULE_6__["AccountPage"]
             },
             {
                 path: 'nearme',
@@ -553,11 +547,7 @@ var routes = [
                 path: 'cart',
                 outlet: 'cart',
                 component: _cart_cart_page__WEBPACK_IMPORTED_MODULE_8__["CartPage"]
-            }, {
-                path: 'history',
-                outlet: 'history',
-                component: _history_history_page__WEBPACK_IMPORTED_MODULE_9__["HistoryPage"]
-            },
+            }
         ]
     },
     {

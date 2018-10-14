@@ -63,7 +63,7 @@ var LoginPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Login</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n\n  <form novalidate (ngSubmit)=\"login()\" [formGroup]=\"loginform\">\n\n    <ion-item>\n      <ion-label position=\"floating\">Username</ion-label>\n      <ion-input type=\"text\" name=\"username\" formControlName=\"username\" [class.error1]=\"!loginform.controls.username.valid && loginform.controls.username.dirty\"></ion-input>\n    </ion-item>\n\n    <ion-item no-lines *ngIf=\"( loginform.get('username').hasError('minlength') || loginform.get('username').hasError('maxlength') ||loginform.get('username').hasError('pattern') ||loginform.get('username').hasError('required') ) && loginform.get('username').touched\">\n      <div class=\"error\" *ngIf=\"loginform.get('username').hasError('required') && loginform.get('username').touched\">\n        Please input your username\n      </div>\n      <div class=\"error\" *ngIf=\"loginform.get('username').hasError('minlength') && loginform.get('username').touched\">\n        Minimum 4 characters\n      </div>\n      <div class=\"error\" *ngIf=\"loginform.get('username').hasError('maxlength') && loginform.get('username').touched\">\n        Maximum 10 characters\n      </div>\n      <div class=\"error\" *ngIf=\"loginform.get('username').hasError('pattern') && loginform.get('username').touched\">\n        Just use alphabet character\n      </div>\n    </ion-item>\n\n    <ion-item>\n      <ion-label position=\"floating\">Password</ion-label>\n      <ion-input type=\"password\" formControlName=\"password\" [class.error1]=\"!loginform.controls.password.valid && loginform.controls.password.dirty\"></ion-input>\n    </ion-item>\n\n    <ion-item no-lines *ngIf=\"( loginform.get('password').hasError('minlength') || loginform.get('password').hasError('maxlength') ||loginform.get('password').hasError('required') ) && loginform.get('password').touched\">\n      <div class=\"error\" *ngIf=\"loginform.get('password').hasError('required') && loginform.get('password').touched\">\n        Please input your password\n      </div>\n      <div class=\"error\" *ngIf=\"loginform.get('password').hasError('minlength') && loginform.get('password').touched\">\n        Minimum 6 characters\n      </div>\n      <div class=\"error\" *ngIf=\"loginform.get('password').hasError('maxlength') && loginform.get('password').touched\">\n        Maximum 12 characters\n      </div>\n    </ion-item>\n    <ion-button  type=\"submit\" size=\"block\" color=\"primary\" [disabled]=\"loginform.invalid\">LOGIN</ion-button >\n    <div>\n      <a  routerLink=\"/signup\">Click here to Create New Account.</a>\n    </div>\n    </form>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Login</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n\n  <form novalidate (ngSubmit)=\"login()\" [formGroup]=\"loginform\">\n\n    <ion-item>\n      <ion-label position=\"floating\">Username</ion-label>\n      <ion-input type=\"text\" name=\"username\" formControlName=\"username\" [class.error1]=\"!loginform.controls.username.valid && loginform.controls.username.dirty\"></ion-input>\n    </ion-item>\n\n    <ion-item no-lines *ngIf=\"( loginform.get('username').hasError('minlength') || loginform.get('username').hasError('maxlength') ||loginform.get('username').hasError('pattern') ||loginform.get('username').hasError('required') ) && loginform.get('username').touched\">\n      <div class=\"error\" *ngIf=\"loginform.get('username').hasError('required') && loginform.get('username').touched\">\n        Please input your username\n      </div>\n      <div class=\"error\" *ngIf=\"loginform.get('username').hasError('minlength') && loginform.get('username').touched\">\n        Minimum 4 characters\n      </div>\n      <div class=\"error\" *ngIf=\"loginform.get('username').hasError('maxlength') && loginform.get('username').touched\">\n        Maximum 10 characters\n      </div>\n      <div class=\"error\" *ngIf=\"loginform.get('username').hasError('pattern') && loginform.get('username').touched\">\n        Just use alphabet character\n      </div>\n    </ion-item>\n\n    <ion-item>\n      <ion-label position=\"floating\">Password</ion-label>\n      <ion-input type=\"password\" formControlName=\"password\" [class.error1]=\"!loginform.controls.password.valid && loginform.controls.password.dirty\"></ion-input>\n    </ion-item>\n\n    <ion-item no-lines *ngIf=\"( loginform.get('password').hasError('minlength') || loginform.get('password').hasError('maxlength') ||loginform.get('password').hasError('required') ) && loginform.get('password').touched\">\n      <div class=\"error\" *ngIf=\"loginform.get('password').hasError('required') && loginform.get('password').touched\">\n        Please input your password\n      </div>\n      <div class=\"error\" *ngIf=\"loginform.get('password').hasError('minlength') && loginform.get('password').touched\">\n        Minimum 6 characters\n      </div>\n      <div class=\"error\" *ngIf=\"loginform.get('password').hasError('maxlength') && loginform.get('password').touched\">\n        Maximum 12 characters\n      </div>\n    </ion-item>\n    <ion-button  type=\"submit\" size=\"block\" color=\"primary\" [disabled]=\"loginform.invalid\">LOGIN</ion-button >\n    <div>\n      <a  routerLink=\"/signup\">Click here to Create New Account.</a>\n    </div>\n    </form>\n    <ion-button  size=\"block\" color=\"primary\" (click)=\"fingerLogin()\" *ngIf=\"showFinger\">Finger LOGIN</ion-button >\n</ion-content>\n"
 
 /***/ }),
 
@@ -92,8 +92,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/index.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
-/* harmony import */ var _service_authntication_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../service/authntication.service */ "./src/app/service/authntication.service.ts");
+/* harmony import */ var _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/fingerprint-aio/ngx */ "./node_modules/@ionic-native/fingerprint-aio/ngx/index.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+/* harmony import */ var _service_authntication_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../service/authntication.service */ "./src/app/service/authntication.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -144,25 +145,45 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+
 var LoginPage = /** @class */ (function () {
-    function LoginPage(auth, events, route, storage, toast) {
+    function LoginPage(auth, events, route, storage, toast, faio) {
         this.auth = auth;
         this.events = events;
         this.route = route;
         this.storage = storage;
         this.toast = toast;
+        this.faio = faio;
+        this.showFinger = false;
     }
     LoginPage.prototype.ngOnInit = function () {
+        var _this = this;
         this.loginform = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
             username: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].pattern('[a-zA-Z ]*'), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(4), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(10)]),
             password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(12)]),
         });
+        this.faio.isAvailable().then(function (res) { return __awaiter(_this, void 0, void 0, function () {
+            var check;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.auth.prevLogin()];
+                    case 1:
+                        check = _a.sent();
+                        console.log(check);
+                        if (check) {
+                            this.showFinger = true;
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        }); }, function (err) { return console.error('TouchID is not available', err); });
     };
     LoginPage.prototype.login = function () {
         var _this = this;
         this.auth.login(this.loginform.value).subscribe(function (suc) {
-            console.log("saved successfully " + suc);
             _this.storage.set('userName', _this.loginform.value.username);
+            _this.storage.set('password', _this.loginform.value.password);
+            _this.storage.set('loggedin', true);
             _this.events.publish('loggedin', _this.loginform.value);
             _this.route.navigate(['']);
         }, function (err) { return __awaiter(_this, void 0, void 0, function () {
@@ -182,17 +203,85 @@ var LoginPage = /** @class */ (function () {
             });
         }); });
     };
+    LoginPage.prototype.fingerLogin = function () {
+        var _this = this;
+        this.faio.show({
+            clientId: 'loyalityApp',
+            clientSecret: 'password',
+            disableBackup: true,
+            localizedFallbackTitle: 'Use Pin',
+            localizedReason: 'Please authenticate' //Only for iOS
+        })
+            .then(function (result) { return __awaiter(_this, void 0, void 0, function () {
+            var username, password;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.storage.get('userName').then(function (data) {
+                            username = data;
+                        })];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.storage.get('password').then(function (data) {
+                                password = data;
+                            })];
+                    case 2:
+                        _a.sent();
+                        this.auth.login({ username: username, password: password }).subscribe(function (suc) {
+                            _this.storage.set('loggedin', true);
+                            _this.events.publish('loggedin', _this.loginform.value);
+                            _this.route.navigate(['']);
+                        }, function (err) { return __awaiter(_this, void 0, void 0, function () {
+                            var toast;
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0: return [4 /*yield*/, this.toast.create({
+                                            message: 'Seems like username and password has been changed, please do login.',
+                                            duration: 2000
+                                        })];
+                                    case 1:
+                                        toast = _a.sent();
+                                        this.auth.logout();
+                                        toast.present();
+                                        this.showFinger = false;
+                                        console.log("error " + err.statusText);
+                                        return [2 /*return*/];
+                                }
+                            });
+                        }); });
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .catch(function (error) { return __awaiter(_this, void 0, void 0, function () {
+            var toast;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.toast.create({
+                            message: error,
+                            duration: 2000
+                        })];
+                    case 1:
+                        toast = _a.sent();
+                        toast.present();
+                        console.log("error " + error);
+                        return [2 /*return*/];
+                }
+            });
+        }); });
+    };
     LoginPage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-login',
             template: __webpack_require__(/*! ./login.page.html */ "./src/app/login/login.page.html"),
             styles: [__webpack_require__(/*! ./login.page.scss */ "./src/app/login/login.page.scss")],
         }),
-        __metadata("design:paramtypes", [_service_authntication_service__WEBPACK_IMPORTED_MODULE_5__["AuthnticationService"],
+        __metadata("design:paramtypes", [_service_authntication_service__WEBPACK_IMPORTED_MODULE_6__["AuthnticationService"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["Events"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _ionic_storage__WEBPACK_IMPORTED_MODULE_4__["Storage"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ToastController"]])
+            _ionic_storage__WEBPACK_IMPORTED_MODULE_5__["Storage"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ToastController"],
+            _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_4__["FingerprintAIO"]])
     ], LoginPage);
     return LoginPage;
 }());

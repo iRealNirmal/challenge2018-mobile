@@ -21,8 +21,8 @@ export class ProfileService {
       'Content-Type':  'application/json'
       })
     };
-
-    return this.http.post("http://192.168.1.102:3000/application/profile", httpOptions).pipe(map((response: Response) => response ));
+    const date = new Date();
+    return this.http.post(`http://192.168.1.103:3000/application/profile?${date}`, httpOptions).pipe(map((response: Response) => response ));
   }
 
   getShop(lat,lng):  Observable<any>{
@@ -33,7 +33,7 @@ export class ProfileService {
     };
     let location = {lat,lng};
 
-    return this.http.post("http://192.168.1.102:3000/application/shopnear", location, httpOptions).pipe(map((response: Response) => response ));
+    return this.http.post("http://192.168.1.103:3000/application/shopnear", location, httpOptions).pipe(map((response: Response) => response ));
   }
 
   getShopAll():  Observable<any>{
@@ -42,7 +42,7 @@ export class ProfileService {
       'Content-Type':  'application/json'
       })
     };
-    return this.http.post("http://192.168.1.102:3000/application/shop", httpOptions).pipe(map((response: Response) => response ));
+    return this.http.post("http://192.168.1.103:3000/application/shop", httpOptions).pipe(map((response: Response) => response ));
   }
   getShopList():  Observable<any>{
     const httpOptions = {
@@ -50,7 +50,7 @@ export class ProfileService {
       'Content-Type':  'application/json'
       })
     };
-    return this.http.post("http://192.168.1.102:3000/application/shoplist", httpOptions).pipe(map((response: Response) => response ));
+    return this.http.post("http://192.168.1.103:3000/application/shoplist", httpOptions).pipe(map((response: Response) => response ));
   }
 
   purchaseHistory():  Observable<any>{
@@ -59,7 +59,7 @@ export class ProfileService {
       'Content-Type':  'application/json'
       })
     };
-    return this.http.post("http://192.168.1.102:3000/application/purchaseHistory", httpOptions).pipe(map((response: Response) => response ));
+    return this.http.post("http://192.168.1.103:3000/application/purchaseHistory", httpOptions).pipe(map((response: Response) => response ));
   }
 
   order(id):  Observable<any>{
@@ -68,7 +68,7 @@ export class ProfileService {
       'Content-Type':  'application/json'
       })
     };
-    return this.http.post("http://192.168.1.102:3000/application/viewOrder", { id }, httpOptions).pipe(map((response: Response) => response ));
+    return this.http.post("http://192.168.1.103:3000/application/viewOrder", { id }, httpOptions).pipe(map((response: Response) => response ));
   }
 
 }

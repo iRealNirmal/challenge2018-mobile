@@ -11,9 +11,9 @@ import { ContactPageModule } from '../contact/contact.module';
 import { AboutPageModule } from '../about/about.module';
 import { NearmePageModule } from '../nearme/nearme.module';
 import { HomePageModule } from '../home/home.module';
-import { ProfilesPageModule } from '../profiles/profiles.module';
+import { AccountPageModule } from '../account/account.module';
 import { CartPageModule } from '../cart/cart.module';
-import { HistoryPageModule } from '../history/history.module';
+
 
 @NgModule({
   imports: [
@@ -24,11 +24,9 @@ import { HistoryPageModule } from '../history/history.module';
     HomePageModule,
     AboutPageModule,
     ContactPageModule,
-    ProfilesPageModule,
-    ProfilesPageModule,
+    AccountPageModule,
     NearmePageModule,
     CartPageModule,
-    HistoryPageModule,
   ],
   declarations: [TabsPage]
 })

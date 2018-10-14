@@ -129,7 +129,15 @@ MIT
 MIT
 MIT
 
+@ionic-native/fingerprint-aio@5.0.0-beta.21
+MIT
+MIT
+
 @ionic-native/geolocation@5.0.0-beta.21
+MIT
+MIT
+
+@ionic-native/qr-scanner@5.0.0-beta.21
 MIT
 MIT
 

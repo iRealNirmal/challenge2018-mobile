@@ -62,7 +62,7 @@ var CartPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-back-button></ion-back-button>\n        </ion-buttons>\n    <ion-title>cart</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n\n    <ion-item  detail-none *ngFor=\"let product of cartList;let i = index\">\n      <ion-label>\n        <h2>{{product.name}}</h2>\n        <p>\n          {{product.price | currency:'INR'}} \n          <ion-badge color=\"primary\">{{product.count}}</ion-badge>\n        </p>\n        <p>Amount {{product.count * product.price | currency:'INR'}}</p>\n      </ion-label>\n      <ion-button shape=\"round\" color=\"danger\" fill=\"outline\" item-end (click)=\"removeCart(i)\">Remove <ion-icon name=\"close\"></ion-icon></ion-button>\n    </ion-item>\n    <ion-item *ngIf=\"!cartList\">\n      <ion-label>\n        <h2>Nothing is added in cart.</h2>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n  <ion-button *ngIf=\"cartList != 0\" expand=\"block\" color=\"primary\" (click)=\"checkout()\">Checkout</ion-button>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-back-button></ion-back-button>\n        </ion-buttons>\n    <ion-title>cart</ion-title>\n    \n    <ion-buttons slot=\"primary\">\n      <ion-button (click)=\"addCart()\">\n          <ion-icon slot=\"icon-only\" name=\"qr-scanner\"></ion-icon>\n        </ion-button>\n  </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-item  detail-none *ngFor=\"let product of cartList;let i = index\">\n      <ion-label>\n        <h2>{{product.name}}</h2>\n        <p>\n          {{product.price | currency:'INR'}} \n          <ion-badge color=\"primary\">{{product.count}}</ion-badge>\n        </p>\n        <p>Amount {{product.count * product.price | currency:'INR'}}</p>\n      </ion-label>\n      <ion-button shape=\"round\" color=\"danger\" fill=\"outline\" item-end (click)=\"removeCart(i)\">Remove <ion-icon name=\"close\"></ion-icon></ion-button>\n    </ion-item>\n    <ion-item *ngIf=\"!cartList\">\n      <ion-label>\n        <h2>Nothing is added in cart.</h2>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n  <ion-button *ngIf=\"cartList != 0\" expand=\"block\" color=\"primary\" (click)=\"checkout()\">Checkout</ion-button>\n</ion-content>\n"
 
 /***/ }),
 
@@ -73,7 +73,7 @@ module.exports = "<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "ion-content {\n  background: transparent !important; }\n"
 
 /***/ }),
 
@@ -89,7 +89,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CartPage", function() { return CartPage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _service_cart_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/cart.service */ "./src/app/service/cart.service.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/index.js");
+/* harmony import */ var _ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/qr-scanner/ngx */ "./node_modules/@ionic-native/qr-scanner/ngx/index.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -137,10 +138,15 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+
+
 var CartPage = /** @class */ (function () {
-    function CartPage(cart, toast) {
+    function CartPage(cart, toast, qrScanner, zone, Alert) {
         this.cart = cart;
         this.toast = toast;
+        this.qrScanner = qrScanner;
+        this.zone = zone;
+        this.Alert = Alert;
         this.cartList = [];
         this.cartList = cart.getList();
     }
@@ -168,6 +174,83 @@ var CartPage = /** @class */ (function () {
         });
         //this.cartList
     };
+    CartPage.prototype.presentAlert = function (e) {
+        if (e === void 0) { e = 'You need to allow camera permission'; }
+        return __awaiter(this, void 0, void 0, function () {
+            var alert;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.Alert.create({
+                            header: 'Permission Error',
+                            subHeader: 'Camera Permission error',
+                            message: e,
+                            buttons: ['OK']
+                        })];
+                    case 1:
+                        alert = _a.sent();
+                        return [4 /*yield*/, alert.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    CartPage.prototype.addCart = function () {
+        var _this = this;
+        // this.cart.fetch({id:'5bbe29b83251c503f425d61f'}).subscribe(
+        //   async value => {
+        //     this.cart.add(value);
+        //     this.cartList = this.cart.getList();
+        //   },
+        //   err => {
+        //     console.log(err);
+        //   }
+        // );
+        window.document.querySelector('ion-app').classList.add('transparentBody');
+        this.qrScanner.prepare()
+            .then(function (status) {
+            if (status.authorized) {
+                // camera permission was granted
+                var ionApp = document.getElementsByTagName("ion-app")[0];
+                // start scanning
+                var scanSub_1 = _this.qrScanner.scan().subscribe(function (text) {
+                    //        alert('Scanned something'+ text);
+                    //text
+                    _this.cart.fetch(text).subscribe(function (value) { return __awaiter(_this, void 0, void 0, function () {
+                        var _this = this;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, this.cart.add(value)];
+                                case 1:
+                                    _a.sent();
+                                    this.zone.run(function () {
+                                        _this.cartList = _this.cart.getList();
+                                    });
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); }, function (err) {
+                        console.log(err);
+                    });
+                    ionApp.style.display = "block";
+                    _this.qrScanner.hide(); // hide camera preview
+                    scanSub_1.unsubscribe(); // stop scanning
+                    window.document.querySelector('ion-app').classList.remove('transparentBody');
+                });
+                ionApp.style.display = "none";
+                _this.qrScanner.show();
+            }
+            else if (status.denied) {
+                _this.presentAlert();
+            }
+            else {
+                _this.presentAlert('don\'t know');
+                // permission was denied, but not permanently. You can ask for permission again at a later time.
+            }
+        })
+            .catch(function (e) { return console.log('Error is', _this.presentAlert(e)); });
+    };
     CartPage.prototype.removeCart = function (index) {
         return __awaiter(this, void 0, void 0, function () {
             var toast;
@@ -192,7 +275,9 @@ var CartPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./cart.page.html */ "./src/app/cart/cart.page.html"),
             styles: [__webpack_require__(/*! ./cart.page.scss */ "./src/app/cart/cart.page.scss")],
         }),
-        __metadata("design:paramtypes", [_service_cart_service__WEBPACK_IMPORTED_MODULE_1__["CartService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"]])
+        __metadata("design:paramtypes", [_service_cart_service__WEBPACK_IMPORTED_MODULE_1__["CartService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"], _ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_2__["QRScanner"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]])
     ], CartPage);
     return CartPage;
 }());
@@ -267,7 +352,15 @@ var CartService = /** @class */ (function () {
         var item = this.cartList;
         var date = new Date();
         var order = { item: item, total: total, rewards: rewards, date: date };
-        return this.http.post("http://192.168.1.102:3000/application/buy", order, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return console.log(response); }));
+        return this.http.post("http://192.168.1.103:3000/application/buy", order, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return console.log(response); }));
+    };
+    CartService.prototype.fetch = function (productId) {
+        var httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+                'Content-Type': 'application/json'
+            })
+        };
+        return this.http.post("http://192.168.1.103:3000/application/fetch", { id: productId }, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
     };
     CartService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

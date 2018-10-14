@@ -21,7 +21,7 @@ export class AuthnticationService {
       })
     };
 
-    return this.http.post("http://192.168.1.102:3000/auth/signup", JSON.stringify(data), httpOptions).pipe(map((response: Response) => {
+    return this.http.post("http://192.168.1.103:3000/auth/signup", JSON.stringify(data), httpOptions).pipe(map((response: Response) => {
       console.log(response);
     }));
   }
@@ -33,8 +33,8 @@ export class AuthnticationService {
       }),
       withCredentials: true
     };
-
-    return this.http.post("http://192.168.1.102:3000/auth/signin", JSON.stringify(data), httpOptions).pipe(map((response: Response) => {
+console.log(data);
+    return this.http.post("http://192.168.1.103:3000/auth/signin", JSON.stringify(data), httpOptions).pipe(map((response: Response) => {
       let res:any = response;
       document.cookie = `connect.sid=s:${res.session}`;
       console.log(res.session);
@@ -43,7 +43,7 @@ export class AuthnticationService {
   }
 
   async authenticate(){
-    await this.storage.get('userName').then(data=>
+    await this.storage.get('loggedin').then(data=>
       {
         if(data)
         {
@@ -58,8 +58,24 @@ export class AuthnticationService {
   }
 
   async logout(){
-    await this.storage.remove('userName');
+    await this.storage.remove('loggedin');
     this.isLoggedin = false;
     return true;
+  }
+
+  async prevLogin(){
+    let d;
+    await this.storage.get('userName').then(data=>
+      {
+        if(data)
+        {
+          d= true;
+        }
+        else
+        {
+          d= false;
+        }
+    });
+    return d;
   }
 }

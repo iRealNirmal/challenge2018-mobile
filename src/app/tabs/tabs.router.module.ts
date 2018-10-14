@@ -5,10 +5,9 @@ import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
 import { AboutPage } from '../about/about.page';
 import { ContactPage } from '../contact/contact.page';
-import { ProfilesPage } from '../profiles/profiles.page';
+import { AccountPage } from '../account/account.page';
 import { NearmePage } from '../nearme/nearme.page';
 import { CartPage } from '../cart/cart.page';
-import { HistoryPage } from '../history/history.page';
 
 const routes: Routes = [
   {
@@ -36,9 +35,9 @@ const routes: Routes = [
         component: ContactPage
       },
       {
-        path:'profiles',
-        outlet: 'profiles',
-        component: ProfilesPage
+        path:'account',
+        outlet: 'account',
+        component: AccountPage
       },
       {
         path:'nearme',
@@ -49,11 +48,7 @@ const routes: Routes = [
         path:'cart',
         outlet: 'cart',
         component: CartPage
-      },{
-        path: 'history',
-        outlet: 'history',
-        component: HistoryPage
-      },
+      }
     ]
   },
   {

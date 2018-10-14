@@ -18,6 +18,7 @@ export class CartService {
     const foundItem = this.cartList.filter(function(item) {
       return item.id === product.id;
     })[0];
+    
 
     if(foundItem) {
       product.count+=product.count;
@@ -55,6 +56,15 @@ export class CartService {
 
     let order = { item, total, rewards, date };
 
-    return this.http.post("http://192.168.1.102:3000/application/buy", order, httpOptions).pipe(map((response: Response) => console.log(response) ));
+    return this.http.post("http://192.168.1.103:3000/application/buy", order, httpOptions).pipe(map((response: Response) => console.log(response) ));
+  }
+
+  fetch(productId){
+    const httpOptions = {
+      headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+      })
+    };
+    return this.http.post("http://192.168.1.103:3000/application/fetch",{id: productId}, httpOptions).pipe(map((response: Response) => response ));
   }
 }

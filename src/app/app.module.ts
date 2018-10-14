@@ -7,7 +7,9 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 import { HttpModule } from '@angular/http'
 import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -18,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { TokenInterceptor } from './interceptor/tokenInterceptor';
+import {Tabs} from '@ionic/angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,6 +38,8 @@ import { TokenInterceptor } from './interceptor/tokenInterceptor';
     SplashScreen,
     Geolocation,
     SocialSharing,
+    QRScanner,
+    FingerprintAIO,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HTTP_INTERCEPTORS,

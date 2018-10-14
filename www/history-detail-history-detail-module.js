@@ -171,7 +171,8 @@ var ProfileService = /** @class */ (function () {
                 'Content-Type': 'application/json'
             })
         };
-        return this.http.post("http://192.168.1.102:3000/application/profile", httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
+        var date = new Date();
+        return this.http.post("http://192.168.1.103:3000/application/profile?" + date, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
     };
     ProfileService.prototype.getShop = function (lat, lng) {
         var httpOptions = {
@@ -180,7 +181,7 @@ var ProfileService = /** @class */ (function () {
             })
         };
         var location = { lat: lat, lng: lng };
-        return this.http.post("http://192.168.1.102:3000/application/shopnear", location, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
+        return this.http.post("http://192.168.1.103:3000/application/shopnear", location, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
     };
     ProfileService.prototype.getShopAll = function () {
         var httpOptions = {
@@ -188,7 +189,7 @@ var ProfileService = /** @class */ (function () {
                 'Content-Type': 'application/json'
             })
         };
-        return this.http.post("http://192.168.1.102:3000/application/shop", httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
+        return this.http.post("http://192.168.1.103:3000/application/shop", httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
     };
     ProfileService.prototype.getShopList = function () {
         var httpOptions = {
@@ -196,7 +197,7 @@ var ProfileService = /** @class */ (function () {
                 'Content-Type': 'application/json'
             })
         };
-        return this.http.post("http://192.168.1.102:3000/application/shoplist", httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
+        return this.http.post("http://192.168.1.103:3000/application/shoplist", httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
     };
     ProfileService.prototype.purchaseHistory = function () {
         var httpOptions = {
@@ -204,7 +205,7 @@ var ProfileService = /** @class */ (function () {
                 'Content-Type': 'application/json'
             })
         };
-        return this.http.post("http://192.168.1.102:3000/application/purchaseHistory", httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
+        return this.http.post("http://192.168.1.103:3000/application/purchaseHistory", httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
     };
     ProfileService.prototype.order = function (id) {
         var httpOptions = {
@@ -212,7 +213,7 @@ var ProfileService = /** @class */ (function () {
                 'Content-Type': 'application/json'
             })
         };
-        return this.http.post("http://192.168.1.102:3000/application/viewOrder", { id: id }, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
+        return this.http.post("http://192.168.1.103:3000/application/viewOrder", { id: id }, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) { return response; }));
     };
     ProfileService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

@@ -61,7 +61,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"common":"common","cart-cart-module~tabs-tabs-module":"cart-cart-module~tabs-tabs-module","detail-view-detail-view-module":"detail-view-detail-view-module","history-detail-history-detail-module":"history-detail-history-detail-module","history-history-module":"history-history-module","nearme-nearme-module":"nearme-nearme-module","login-login-module":"login-login-module","profiles-profiles-module~tabs-tabs-module":"profiles-profiles-module~tabs-tabs-module","tabs-tabs-module":"tabs-tabs-module","signup-signup-module":"signup-signup-module"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"common":"common","cart-cart-module~tabs-tabs-module":"cart-cart-module~tabs-tabs-module","nearme-nearme-module~tabs-tabs-module":"nearme-nearme-module~tabs-tabs-module","tabs-tabs-module":"tabs-tabs-module","detail-view-detail-view-module":"detail-view-detail-view-module","history-detail-history-detail-module":"history-detail-history-detail-module","history-history-module":"history-history-module","profiles-profiles-module":"profiles-profiles-module","login-login-module":"login-login-module","signup-signup-module":"signup-signup-module"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function

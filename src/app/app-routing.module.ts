@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'cart', loadChildren: './cart/cart.module#CartPageModule', canActivate: [AuthGuardService], },
   { path: 'history', loadChildren: './history/history.module#HistoryPageModule', canActivate: [AuthGuardService], },
   { path: 'historyDetail/:id', loadChildren: './history-detail/history-detail.module#HistoryDetailPageModule', canActivate: [AuthGuardService], },
+  { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

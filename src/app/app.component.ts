@@ -8,7 +8,8 @@ import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styles : ['.transparentBody { background: transparent !important; }']
 })
 export class AppComponent {
   constructor(

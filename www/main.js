@@ -1651,6 +1651,10 @@ webpackContext.id = "./node_modules/@ionic/core/dist/ionic/svg sync ./!./!./node
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./account/account.module": [
+		"./src/app/account/account.module.ts",
+		"common"
+	],
 	"./cart/cart.module": [
 		"./src/app/cart/cart.module.ts",
 		"cart-cart-module~tabs-tabs-module",
@@ -1677,13 +1681,13 @@ var map = {
 	],
 	"./nearme/nearme.module": [
 		"./src/app/nearme/nearme.module.ts",
-		"common",
-		"nearme-nearme-module"
+		"nearme-nearme-module~tabs-tabs-module",
+		"common"
 	],
 	"./profiles/profiles.module": [
 		"./src/app/profiles/profiles.module.ts",
-		"profiles-profiles-module~tabs-tabs-module",
-		"common"
+		"common",
+		"profiles-profiles-module"
 	],
 	"./signup/signup.module": [
 		"./src/app/signup/signup.module.ts",
@@ -1691,8 +1695,8 @@ var map = {
 	],
 	"./tabs/tabs.module": [
 		"./src/app/tabs/tabs.module.ts",
-		"profiles-profiles-module~tabs-tabs-module",
 		"cart-cart-module~tabs-tabs-module",
+		"nearme-nearme-module~tabs-tabs-module",
 		"common",
 		"tabs-tabs-module"
 	]
@@ -1751,6 +1755,7 @@ var routes = [
     { path: 'cart', loadChildren: './cart/cart.module#CartPageModule', canActivate: [_service_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]], },
     { path: 'history', loadChildren: './history/history.module#HistoryPageModule', canActivate: [_service_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]], },
     { path: 'historyDetail/:id', loadChildren: './history-detail/history-detail.module#HistoryDetailPageModule', canActivate: [_service_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]], },
+    { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -1826,7 +1831,8 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html")
+            template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
+            styles: ['.transparentBody { background: transparent !important; }']
         }),
         __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_1__["Platform"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_2__["SplashScreen"],
@@ -1858,13 +1864,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
 /* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
 /* harmony import */ var _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/social-sharing/ngx */ "./node_modules/@ionic-native/social-sharing/ngx/index.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _interceptor_tokenInterceptor__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./interceptor/tokenInterceptor */ "./src/app/interceptor/tokenInterceptor.ts");
+/* harmony import */ var _ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/qr-scanner/ngx */ "./node_modules/@ionic-native/qr-scanner/ngx/index.js");
+/* harmony import */ var _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/fingerprint-aio/ngx */ "./node_modules/@ionic-native/fingerprint-aio/ngx/index.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _interceptor_tokenInterceptor__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./interceptor/tokenInterceptor */ "./src/app/interceptor/tokenInterceptor.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1886,38 +1894,42 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_15__["AppComponent"]],
             entryComponents: [],
             imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicModule"].forRoot(),
-                _angular_http__WEBPACK_IMPORTED_MODULE_8__["HttpModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_12__["AppRoutingModule"],
-                _ionic_storage__WEBPACK_IMPORTED_MODULE_11__["IonicStorageModule"].forRoot(),
+                _angular_http__WEBPACK_IMPORTED_MODULE_10__["HttpModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_12__["ReactiveFormsModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_14__["AppRoutingModule"],
+                _ionic_storage__WEBPACK_IMPORTED_MODULE_13__["IonicStorageModule"].forRoot(),
             ],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__["StatusBar"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__["SplashScreen"],
                 _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_6__["Geolocation"],
                 _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_7__["SocialSharing"],
+                _ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_8__["QRScanner"],
+                _ionic_native_fingerprint_aio_ngx__WEBPACK_IMPORTED_MODULE_9__["FingerprintAIO"],
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicRouteStrategy"] },
                 {
-                    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HTTP_INTERCEPTORS"],
-                    useClass: _interceptor_tokenInterceptor__WEBPACK_IMPORTED_MODULE_14__["TokenInterceptor"],
+                    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HTTP_INTERCEPTORS"],
+                    useClass: _interceptor_tokenInterceptor__WEBPACK_IMPORTED_MODULE_16__["TokenInterceptor"],
                     multi: true
                 }
             ],
             exports: [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_12__["ReactiveFormsModule"],
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_15__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -2242,7 +2254,7 @@ var AuthnticationService = /** @class */ (function () {
                 'Content-Type': 'application/json'
             })
         };
-        return this.http.post("http://192.168.1.102:3000/auth/signup", JSON.stringify(data), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
+        return this.http.post("http://192.168.1.103:3000/auth/signup", JSON.stringify(data), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
             console.log(response);
         }));
     };
@@ -2254,7 +2266,8 @@ var AuthnticationService = /** @class */ (function () {
             }),
             withCredentials: true
         };
-        return this.http.post("http://192.168.1.102:3000/auth/signin", JSON.stringify(data), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
+        console.log(data);
+        return this.http.post("http://192.168.1.103:3000/auth/signin", JSON.stringify(data), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
             var res = response;
             document.cookie = "connect.sid=s:" + res.session;
             console.log(res.session);
@@ -2266,7 +2279,7 @@ var AuthnticationService = /** @class */ (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.storage.get('userName').then(function (data) {
+                    case 0: return [4 /*yield*/, this.storage.get('loggedin').then(function (data) {
                             if (data) {
                                 _this.isLoggedin = true;
                             }
@@ -2285,11 +2298,31 @@ var AuthnticationService = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.storage.remove('userName')];
+                    case 0: return [4 /*yield*/, this.storage.remove('loggedin')];
                     case 1:
                         _a.sent();
                         this.isLoggedin = false;
                         return [2 /*return*/, true];
+                }
+            });
+        });
+    };
+    AuthnticationService.prototype.prevLogin = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var d;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.storage.get('userName').then(function (data) {
+                            if (data) {
+                                d = true;
+                            }
+                            else {
+                                d = false;
+                            }
+                        })];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/, d];
                 }
             });
         });

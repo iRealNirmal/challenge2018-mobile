@@ -67,6 +67,22 @@ module.exports = [
     "clobbers": [
       "window.plugins.socialsharing"
     ]
+  },
+  {
+    "id": "cordova-plugin-qrscanner.QRScanner",
+    "file": "plugins/cordova-plugin-qrscanner/www/www.min.js",
+    "pluginId": "cordova-plugin-qrscanner",
+    "clobbers": [
+      "QRScanner"
+    ]
+  },
+  {
+    "id": "cordova-plugin-fingerprint-aio.Fingerprint",
+    "file": "plugins/cordova-plugin-fingerprint-aio/www/Fingerprint.js",
+    "pluginId": "cordova-plugin-fingerprint-aio",
+    "clobbers": [
+      "Fingerprint"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -80,7 +96,9 @@ module.exports.metadata =
   "cordova-plugin-statusbar": "2.4.2",
   "cordova-plugin-whitelist": "1.3.3",
   "es6-promise-plugin": "4.2.2",
-  "cordova-plugin-x-socialsharing": "5.4.1"
+  "cordova-plugin-x-socialsharing": "5.4.1",
+  "cordova-plugin-qrscanner": "2.6.0",
+  "cordova-plugin-fingerprint-aio": "1.4.1"
 };
 // BOTTOM OF METADATA
 });

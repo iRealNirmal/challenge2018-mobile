@@ -4,12 +4,17 @@
           <ion-back-button></ion-back-button>
         </ion-buttons>
     <ion-title>cart</ion-title>
+    
+    <ion-buttons slot="primary">
+      <ion-button (click)="addCart()">
+          <ion-icon slot="icon-only" name="qr-scanner"></ion-icon>
+        </ion-button>
+  </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
-
     <ion-item  detail-none *ngFor="let product of cartList;let i = index">
       <ion-label>
         <h2>{{product.name}}</h2>
